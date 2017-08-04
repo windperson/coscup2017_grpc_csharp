@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DocXCore" Version="*"/>
+    <PackageReference Include="Grpc" Version="1.4.1"/>
+    <PackageReference Include="Grpc.Tools" Version="1.4.1"/>
+    <PackageReference Include="Google.Protobuf" Version="3.3.0"/>
+    <PackageReference Include="System.Interactive.Async" Version="3.1.1"/>
+    <PackageReference Include="CommandLineParser" Version="2.1.1-beta"/>
+  </ItemGroup>
+</Project>
