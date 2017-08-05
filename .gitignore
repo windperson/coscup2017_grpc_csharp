@@ -501,3 +501,4 @@ fabric.properties
 # should be stored in the .pubxml.user file.
 
 # End of https://www.gitignore.io/api/csharp,jetbrains,visualstudio,visualstudiocode
+*.docx

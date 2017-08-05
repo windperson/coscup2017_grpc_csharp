@@ -23,6 +23,12 @@ namespace coscup2017_grpc_csharp
 
             var cmdArgs = ((Parsed<Options>)parseResult).Value;
 
+            if (String.IsNullOrEmpty(cmdArgs.DocPath) || String.IsNullOrEmpty(cmdArgs.HostAddr))
+            {
+                Console.WriteLine("lack parameter(s), exit...");
+                return;
+            }
+
             // Create a channel
             var channel = new Channel(cmdArgs.HostAddr, ChannelCredentials.Insecure);
 
@@ -53,7 +59,8 @@ namespace coscup2017_grpc_csharp
                         var server_sendData = responseStream.Current;
                         var clientId = server_sendData.ClientId;
                         var recoginzed = server_sendData.Recognized;
-                        var timeStamp = server_sendData.Timestamp.ToDateTime();
+                        var GoogleTimeStamp  = server_sendData.Timestamp;
+                        var timeStamp = GoogleTimeStamp.ToDateTime();
 
                         WriteToDoc(docPath, clientId, recoginzed, timeStamp);
                     }
@@ -79,7 +86,7 @@ namespace coscup2017_grpc_csharp
 
             var headerFormat = new Formatting();
             headerFormat.FontFamily = new Font("Arial Black");
-            headerFormat.Size = 90;
+            headerFormat.Size = 20;
             headerFormat.Bold = true;
 
             doc.InsertParagraph($"client: {clientId}", false, headerFormat);
